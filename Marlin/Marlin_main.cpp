@@ -15315,6 +15315,9 @@ void loop() {
         #if ENABLED(POWER_LOSS_RECOVERY)
           card.removeJobRecoveryFile();
         #endif
+      #if ENABLED(SD_STOPPED_STEPPERRELEASE) && defined(SD_STOPPED_RELEASECOMMAND)
+        enqueue_and_echo_commands_P(PSTR(SD_STOPPED_RELEASECOMMAND));
+      #endif
       }
     #endif
 
