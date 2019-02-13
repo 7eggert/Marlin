@@ -1926,19 +1926,19 @@
 // Only power servos during movement, otherwise leave off to prevent jitter
 //#define DEACTIVATE_SERVOS_AFTER_MOVE
 
-#if 1
+/**
+ * I²C-2004-Display and ADC key:
+ */
+
 // display
+  #define ULTIPANEL
   #define LCD_I2C_TYPE_PCF8575
   #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
-  //#define PANEL_ONE
-  #define ULTIPANEL
-  //#define ULTRA_LCD
   #define LCD_WIDTH 20
   #define LCD_HEIGHT 4
   
 // encoder
   #define NEWPANEL
-  //#define REPRAPWORLD_KEYPAD_MOVE_STEP 10.0
   #define BTN_EN1          11
   #define BTN_EN2          10
   #define BTN_ENC -1
@@ -1950,25 +1950,5 @@
   #define ADC_KEYPAD
   #define ADC_KEY_NUM 8
   #define ADC_KEYPAD_PLUS_ENCODER
-  //#define REPRAP_DISCOUNT_SMART_CONTROLLER
-#else
-#define REPRAP_DISCOUNT_SMART_CONTROLLER
-#define SDSUPPORT
-#define LCD_WIDTH 20
-#define LCD_HEIGHT 4
-  #define LCD_I2C_TYPE_PCF8575
-  #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
-
-  #define BTN_EN1          11
-  #define BTN_EN2          10
-  #define BTN_ENC -1
-
-  #define REPRAPWORLD_KEYPAD
-  #define ADC_KEYPAD
-  #define ADC_KEY_NUM 8
-  #define REVERSE_MENU_DIRECTION
-  #define ADC_KEYPAD_PLUS_ENCODER
-
-#endif
 
 #endif // CONFIGURATION_H
