@@ -1,3 +1,7 @@
+//#define testservo
+#ifdef testservo
+#include <Adafruit_PWMServoDriver.h>
+#endif
 /**
  * Marlin 3D Printer Firmware
  * Copyright (C) 2016, 2017 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
@@ -15014,6 +15018,10 @@ void stop() {
  *    • status LEDs
  */
 void setup() {
+#ifdef testservo
+  Adafruit_PWMServoDriver ada_pwm = Adafruit_PWMServoDriver();
+  ada_pwm.setPWMFreq(60);
+#endif
 
   #if ENABLED(MAX7219_DEBUG)
     max7219.init();

@@ -344,7 +344,7 @@
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define HEATER_0_MAXTEMP 275
+#define HEATER_0_MAXTEMP 290
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -1460,14 +1460,14 @@
 // This option overrides the default number of encoder pulses needed to
 // produce one step. Should be increased for high-resolution encoders.
 //
-//#define ENCODER_PULSES_PER_STEP 4
+#define ENCODER_PULSES_PER_STEP 4
 
 //
 // Use this option to override the number of step signals required to
 // move between next/prev menu items.
 //
-//#define ENCODER_STEPS_PER_MENU_ITEM 1
-
+#define ENCODER_STEPS_PER_MENU_ITEM 1
+#define ENCODER_FEEDRATE_DEADZONE 2
 /**
  * Encoder Direction Options
  *
@@ -1570,7 +1570,7 @@
 //
 // ANET and Tronxy 20x4 Controller
 //
-#define ZONESTAR_LCD              // Requires ADC_KEYPAD_PIN to be assigned to an analog pin.
+// #define ZONESTAR_LCD              // Requires ADC_KEYPAD_PIN to be assigned to an analog pin.
                                   // This LCD is known to be susceptible to electrical interference
                                   // which scrambles the display.  Pressing any button clears it up.
                                   // This is a LCD2004 display with 5 analog buttons.
@@ -1868,13 +1868,13 @@
  * LED Type. Enable only one of the following two options.
  *
  */
-//#define RGB_LED
+#define RGB_LED
 //#define RGBW_LED
 
 #if ENABLED(RGB_LED) || ENABLED(RGBW_LED)
-  #define RGB_LED_R_PIN 34
-  #define RGB_LED_G_PIN 43
-  #define RGB_LED_B_PIN 35
+  #define RGB_LED_R_PIN 27
+  #define RGB_LED_G_PIN 28
+  #define RGB_LED_B_PIN 29
   #define RGB_LED_W_PIN -1
 #endif
 
@@ -1925,5 +1925,50 @@
 
 // Only power servos during movement, otherwise leave off to prevent jitter
 //#define DEACTIVATE_SERVOS_AFTER_MOVE
+
+#if 1
+// display
+  #define LCD_I2C_TYPE_PCF8575
+  #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
+  //#define PANEL_ONE
+  #define ULTIPANEL
+  //#define ULTRA_LCD
+  #define LCD_WIDTH 20
+  #define LCD_HEIGHT 4
+  
+// encoder
+  #define NEWPANEL
+  //#define REPRAPWORLD_KEYPAD_MOVE_STEP 10.0
+  #define BTN_EN1          11
+  #define BTN_EN2          10
+  #define BTN_ENC -1
+  #define REVERSE_MENU_DIRECTION
+  #define REVERSE_ENCODER_DIRECTION
+
+// keys
+  #define REPRAPWORLD_KEYPAD
+  #define ADC_KEYPAD
+  #define ADC_KEY_NUM 8
+  #define ADC_KEYPAD_PLUS_ENCODER
+  //#define REPRAP_DISCOUNT_SMART_CONTROLLER
+#else
+#define REPRAP_DISCOUNT_SMART_CONTROLLER
+#define SDSUPPORT
+#define LCD_WIDTH 20
+#define LCD_HEIGHT 4
+  #define LCD_I2C_TYPE_PCF8575
+  #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
+
+  #define BTN_EN1          11
+  #define BTN_EN2          10
+  #define BTN_ENC -1
+
+  #define REPRAPWORLD_KEYPAD
+  #define ADC_KEYPAD
+  #define ADC_KEY_NUM 8
+  #define REVERSE_MENU_DIRECTION
+  #define ADC_KEYPAD_PLUS_ENCODER
+
+#endif
 
 #endif // CONFIGURATION_H

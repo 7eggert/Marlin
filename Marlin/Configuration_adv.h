@@ -54,7 +54,7 @@
 #if DISABLED(PIDTEMPBED)
   #define BED_CHECK_INTERVAL 5000 // ms between checks in bang-bang control
   #if ENABLED(BED_LIMIT_SWITCHING)
-    #define BED_HYSTERESIS 2 // Only disable heating if T>target+BED_HYSTERESIS and enable heating if T>target-BED_HYSTERESIS
+    #define BED_HYSTERESIS 0.25 // Only disable heating if T>target+BED_HYSTERESIS and enable heating if T>target-BED_HYSTERESIS
   #endif
 #endif
 
@@ -533,7 +533,7 @@
 //#define LCD_DECIMAL_SMALL_XY
 
 // The timeout (in ms) to return to the status screen from sub-menus
-//#define LCD_TIMEOUT_TO_STATUS 15000
+#define LCD_TIMEOUT_TO_STATUS 1073741823
 
 // Add an 'M73' G-code to set the current percentage
 //#define LCD_SET_PROGRESS_MANUALLY
@@ -553,7 +553,7 @@
  * LED Control Menu
  * Enable this feature to add LED Control to the LCD menu
  */
-//#define LED_CONTROL_MENU
+#define LED_CONTROL_MENU
 #if ENABLED(LED_CONTROL_MENU)
   #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
   #if ENABLED(LED_COLOR_PRESETS)
@@ -562,7 +562,7 @@
     #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
     #define LED_USER_PRESET_WHITE      255  // User defined WHITE value
     #define LED_USER_PRESET_BRIGHTNESS 255  // User defined intensity
-    //#define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
+    #define LED_USER_PRESET_STARTUP       // Have the printer display the user preset color on startup
   #endif
 #endif // LED_CONTROL_MENU
 
