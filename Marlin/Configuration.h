@@ -1950,6 +1950,5 @@
   #define REPRAPWORLD_KEYPAD
   #define ADC_KEYPAD
   #define ADC_KEY_NUM 8
-  #define ADC_KEYPAD_PLUS_ENCODER
 
 #endif // CONFIGURATION_H
