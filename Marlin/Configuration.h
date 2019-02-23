@@ -1944,7 +1944,7 @@
   #define BTN_EN2          10
   #define BTN_ENC -1
   #define REVERSE_MENU_DIRECTION
-  #define REVERSE_ENCODER_DIRECTION
+  //#define REVERSE_ENCODER_DIRECTION
 
 // keys
   #define REPRAPWORLD_KEYPAD
