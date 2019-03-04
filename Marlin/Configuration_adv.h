@@ -580,7 +580,7 @@
   #define SD_STOPPED_STEPPERRELEASE true          // Disable steppers when SD Print is finished
   //#define SD_STOPPED_RELEASECOMMAND SD_FINISHED_RELEASECOMMAND // same as when SD Print is finished
   //#define SD_STOPPED_RELEASECOMMAND "G91\nG0 Z5\nG28 X\nG1 Y220\nM84" // Example
-  #define SD_STOPPED_RELEASECOMMAND "G28 X\nG1 Y220 F6000\nM84"
+  #define SD_STOPPED_RELEASECOMMAND "G28 X\nG0 Y220 F6000\nM84"
 
   // Reverse SD sort to show "more recent" files first, according to the card's FAT.
   // Since the FAT gets out of order with usage, SDCARD_SORT_ALPHA is recommended.
@@ -1003,7 +1003,7 @@
                                                   //   For direct drive, the full length of the nozzle.
   //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
   #define ADVANCED_PAUSE_PURGE_FEEDRATE        3  // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
-  #define ADVANCED_PAUSE_PURGE_LENGTH         50  // (mm) Length to extrude after loading.
+  #define ADVANCED_PAUSE_PURGE_LENGTH          2  // (mm) Length to extrude after loading.
                                                   //   Set to 0 for manual extrusion.
                                                   //   Filament can be extruded repeatedly from the Filament Change menu
                                                   //   until extrusion is consistent, and to purge old filament.
