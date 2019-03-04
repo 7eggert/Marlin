@@ -1194,7 +1194,7 @@ inline void get_serial_commands() {
             #if ENABLED(PRINTER_EVENT_LEDS)
               LCD_MESSAGEPGM(MSG_INFO_COMPLETED_PRINTS);
               leds.set_green();
-              #if HAS_RESUME_CONTINUE
+/*              #if HAS_RESUME_CONTINUE
                 lights_off_after_print = true;
                 enqueue_and_echo_commands_P(PSTR("M0 S"
                   #if ENABLED(NEWPANEL)
@@ -1207,7 +1207,7 @@ inline void get_serial_commands() {
                 safe_delay(2000);
                 leds.set_off();
               #endif
-            #endif // PRINTER_EVENT_LEDS
+*/            #endif // PRINTER_EVENT_LEDS
           }
         }
         else if (n == -1) {
