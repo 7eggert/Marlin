@@ -4210,6 +4210,10 @@ inline void gcode_G28(const bool always_home_all) {
     }
   #endif
 
+  #if ENABLED(RGB_LED) || ENABLED(RGBW_LED)
+    leds.set_default();
+  #endif
+
   #if ENABLED(MARLIN_DEV_MODE)
     if (parser.seen('S')) {
       LOOP_XYZ(a) set_axis_is_at_home((AxisEnum)a);
