@@ -189,6 +189,10 @@ void GcodeSuite::G28(const bool always_home_all) {
     }
   #endif
 
+  #if ENABLED(RGB_LED) || ENABLED(RGBW_LED)
+    leds.set_default();
+  #endif
+
   #if ENABLED(DUAL_X_CARRIAGE)
     bool IDEX_saved_duplication_state = extruder_duplication_enabled;
     DualXMode IDEX_saved_mode = dual_x_carriage_mode;
