@@ -49,6 +49,10 @@
   #include "../../libs/L6470/L6470_Marlin.h"
 #endif
 
+#if ENABLED(RGB_LED) || ENABLED(RGBW_LED)
+  #include "../../feature/leds/leds.h"
+#endif
+
 #if ENABLED(QUICK_HOME)
 
   static void quick_home_xy() {
