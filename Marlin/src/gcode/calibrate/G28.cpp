@@ -49,6 +49,10 @@
   #include "../../libs/L6470/L6470_Marlin.h"
 #endif
 
+#if ENABLED(RGB_LED) || ENABLED(RGBW_LED)
+  #include "../../feature/leds/leds.h"
+#endif
+
 #if ENABLED(QUICK_HOME)
 
   static void quick_home_xy() {
@@ -187,6 +191,10 @@ void GcodeSuite::G28(const bool always_home_all) {
       SERIAL_ECHOLNPGM(">>> G28");
       log_machine_info();
     }
+  #endif
+
+  #if ENABLED(RGB_LED) || ENABLED(RGBW_LED)
+    leds.set_default();
   #endif
 
   #if ENABLED(DUAL_X_CARRIAGE)
