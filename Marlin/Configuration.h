@@ -2094,3 +2094,28 @@
 
 // Allow servo angle to be edited and saved to EEPROM
 //#define EDITABLE_SERVO_ANGLES
+
+/**
+ * I²C-2004-Display and ADC key:
+ */
+
+// display
+  #define ULTIPANEL
+  #define LCD_I2C_TYPE_PCF8575
+  #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
+  #define LCD_WIDTH 20
+  #define LCD_HEIGHT 4
+
+// encoder
+  #define NEWPANEL
+  #define BTN_EN1          40
+  #define BTN_EN2          41
+  #define BTN_ENC -1
+  #define REVERSE_MENU_DIRECTION
+  //#define REVERSE_ENCODER_DIRECTION
+
+// keys
+  #define REPRAPWORLD_KEYPAD
+  #define ADC_KEYPAD
+  #define ADC_KEY_NUM 8
+  #define ADC_KEYPAD_PIN A11
