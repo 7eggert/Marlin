@@ -26,6 +26,7 @@
 
 #include "../../module/stepper.h"
 #include "../../module/endstops.h"
+#include "../../feature/leds/leds.h"
 
 #if HOTENDS > 1
   #include "../../module/tool_change.h"
